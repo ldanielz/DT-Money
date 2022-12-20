@@ -6,7 +6,7 @@
       "type": "income",
       "category": "Venda",
       "price": 11000,
-      "createdAt": "2022-12-19T19:04:47.968Z"
+      "createdAt": "2022-12-12T19:04:47.968Z"
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
       "type": "outcome",
       "category": "Alimentação",
       "price": 45,
-      "createdAt": "2022-12-19T14:04:07.968Z"
+      "createdAt": "2022-12-15T14:04:07.968Z"
     },
     {
       "id": 3,
@@ -22,7 +22,31 @@
       "type": "outcome",
       "category": "Educação",
       "price": 1750,
-      "createdAt": "2022-11-19T14:04:07.968Z"
+      "createdAt": "2022-11-10T14:04:07.968Z"
+    },
+    {
+      "category": "Venda",
+      "description": "Desenvolvimento de APP",
+      "price": 10000,
+      "type": "income",
+      "createdAt": "2022-12-20T01:26:04.166Z",
+      "id": 4
+    },
+    {
+      "category": "Alimentação ",
+      "description": "Pastel",
+      "price": 5,
+      "type": "outcome",
+      "createdAt": "2022-12-20T01:31:12.110Z",
+      "id": 5
+    },
+    {
+      "category": "Alimentação",
+      "description": "Miojo Lamen",
+      "price": 3,
+      "type": "outcome",
+      "createdAt": "2022-12-20T01:45:06.400Z",
+      "id": 6
     }
   ]
 }
