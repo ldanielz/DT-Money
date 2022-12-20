@@ -15,6 +15,14 @@
       "category": "Alimentação",
       "price": 45,
       "createdAt": "2022-12-19T14:04:07.968Z"
+    },
+    {
+      "id": 3,
+      "description": "Ignite Rocketseat",
+      "type": "outcome",
+      "category": "Educação",
+      "price": 1750,
+      "createdAt": "2022-11-19T14:04:07.968Z"
     }
   ]
 }
