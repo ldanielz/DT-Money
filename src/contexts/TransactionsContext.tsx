@@ -1,4 +1,5 @@
-import { createContext, ReactNode, useEffect, useState } from 'react'
+import { ReactNode, useEffect, useState, useCallback } from 'react'
+import { createContext } from 'use-context-selector'
 import { api } from '../lib/axios'
 
 interface Transaction {
@@ -35,7 +36,7 @@ export function TransactionsProvider({
   const [transactions, setTransactions] = useState<Transaction[]>([])
 
   // opção para Fetch com async e await
-  async function fetchTransactions(query?: string) {
+  const fetchTransactions = useCallback(async (query?: string) => {
     const response = await api.get('/transactions', {
       params: {
         _sort: 'createdAt',
@@ -43,25 +44,23 @@ export function TransactionsProvider({
         q: query,
       },
     })
-
     setTransactions(response.data)
-  }
+  }, [])
 
-  async function createTransaction({
-    category,
-    description,
-    price,
-    type,
-  }: CreateTransactionInput) {
-    const response = await api.post('transactions', {
-      category,
-      description,
-      price,
-      type,
-      createdAt: new Date(),
-    })
-    setTransactions((state) => [response.data, ...state])
-  }
+  const createTransaction = useCallback(
+    async (data: CreateTransactionInput) => {
+      const { category, description, price, type } = data
+      const response = await api.post('transactions', {
+        category,
+        description,
+        price,
+        type,
+        createdAt: new Date(),
+      })
+      setTransactions((state) => [response.data, ...state])
+    },
+    [],
+  )
 
   useEffect(() => {
     // opção Fetch usando .then()
@@ -70,7 +69,7 @@ export function TransactionsProvider({
        .then((data) => console.log(data)) */
 
     fetchTransactions()
-  }, [])
+  }, [fetchTransactions])
 
   return (
     <TransactionsContext.Provider
